@@ -1,0 +1,72 @@
+Tap giao tac Data:  [
+  'f;a;c;d;g;i;m;p',
+  'a;b;c;f;l;m;o',
+  'b;f;h;j;o',
+  'b;c;k;s;p',
+  'a;f;c;e;l;p;m;n'
+]
+Nguong Toi Thieu: 3
+Dang tinh C1...
+C1:  {
+  f: 4,
+  a: 3,
+  c: 4,
+  d: 1,
+  g: 1,
+  i: 1,
+  m: 3,
+  p: 3,
+  b: 3,
+  l: 2,
+  o: 2,
+  h: 1,
+  j: 1,
+  k: 1,
+  s: 1,
+  e: 1,
+  n: 1
+}
+Dang tinh L1...
+L1:  { f: 4, a: 3, c: 4, m: 3, p: 3, b: 3 }
+lKeysSortedDescArr [ 'f', 'c', 'a', 'm', 'p', 'b' ]
+f
+a
+c
+d
+g
+i
+m
+p
+a
+b
+c
+f
+l
+m
+o
+b
+f
+h
+j
+o
+b
+c
+k
+s
+p
+a
+f
+c
+e
+l
+p
+m
+n
+itemsPhoBien [ 'f;c;a;m;p', 'f;c;a;m;b', 'f;b', 'c;p;b', 'f;c;a;m;p' ]
+resultObj {
+  root: {
+    f: { value: 4, c: [Object], b: [Object] },
+    c: { value: 1, p: [Object] }
+  }
+}
+Ket thuc luc: 02:08:32 AM 19/04/2020
