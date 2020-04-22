@@ -125,7 +125,7 @@ let aprioriAlgorythm = async (filename, logFileName, minSupp = 1) => {
   log('C1: ' + JSON.stringify(c1Obj))
   log(`Dang tinh L1...`)
   // Khởi tạo thường xuyên L1
-  let lObj = tinhTapThuongXuyenL(c1Obj)
+  let lObj = tinhTapThuongXuyenL(c1Obj, minSupp)
   log('L1: ' + JSON.stringify(lObj))
   idx++
   let resultObj = lObj
@@ -156,9 +156,9 @@ let aprioriAlgorythm = async (filename, logFileName, minSupp = 1) => {
       numOfL++
     }
   }
-  log(`Co ${numOfL} muc du lieu thuong xuyen`)
+  log(`Co ${Object.keys(resultObj).length} muc du lieu thuong xuyen`)
   logs = [...logs, ...logsLoop]
-  log(`Ket qua voi duoi dang object`)
+  log(`Tap thuong xuyen`)
   // log(JSON.stringify(resultObj))
   log(Object.keys(resultObj))
   log('Ket thuc luc: ' + moment().format('HH:mm:ss A DD/MM/YYYY'))
@@ -184,3 +184,9 @@ inquirer.prompt(questions).then(answers => {
   fileName = 'input/' + fileName
   aprioriAlgorythm(fileName, logFileName, minSuppNum)
 })
+
+// let fileName = 'Data_2_CH19_9.txt'
+// let minSuppNum = 500
+// let logFileName = 'output/' + fileName
+// fileName = 'input/' + fileName
+// aprioriAlgorythm(fileName, logFileName, minSuppNum)
