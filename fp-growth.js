@@ -73,7 +73,13 @@ let fpGrowthAlgorithm = async (fileName = '', minSupp = 1) => {
   let startTime = moment().format('HH:mm:ss A DD/MM/YYYY')
   let data = []
   let dataFile = await fs.readFileSync(fileName, 'utf8')
-  data = dataFile.split(';\r\n').filter(e => e)
+  data = dataFile.split('\n').reduce((resultArr, item) => {
+    let itemArr = item.split(';').filter(e => e && e !== '\r')
+    if (itemArr.length) {
+      resultArr.push(itemArr.join(';'))
+    }
+    return resultArr
+  }, [])
 
   console.log('Tap giao tac Data: ', data)
 
@@ -166,7 +172,7 @@ let fpGrowthAlgorithm = async (fileName = '', minSupp = 1) => {
     `Bat dau luc: ${startTime}`,
     `Co tat ca ${mauPhoBienArr.length} tap thuong xuyen`,
     `Ket thuc luc: ${endTime}`,
-  ].join('\n'))
+  ].join('\r\n'))
   // let logTtxFileName = `output/fp-growth/TTX_${minSupp}_D_${i}_CH19_${j}.txt`
   // if (fs.existsSync(logTtxFileName)) {
   //   await fs.unlinkSync(logTtxFileName)
@@ -185,7 +191,7 @@ let fpGrowthAlgorithm = async (fileName = '', minSupp = 1) => {
     if (fs.existsSync(logTtxFileName)) {
       await fs.unlinkSync(logTtxFileName)
     }
-    await fs.writeFileSync(logTtxFileName, outputFileDataObj[itemLength].join(';\n') + ';')
+    await fs.writeFileSync(logTtxFileName, outputFileDataObj[itemLength].join(';\r\n') + ';')
   }
 }
 
@@ -209,8 +215,8 @@ const flattenObject = (obj) => {
 	return toReturn
 }
 
-let fileName = 'Data_1_CH19_9.txt'
-let minSuppNum = 2
+let fileName = 'Data_3_CH19_9.txt'
+let minSuppNum = 300
 // let fileName = 'test-fp-growth.txt'
 // let minSuppNum = 3
 fileName = 'input/' + fileName
