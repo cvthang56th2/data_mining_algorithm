@@ -209,25 +209,25 @@ const flattenObject = (obj) => {
 	return toReturn
 }
 
-// let fileName = 'Data_1_CH19_9.txt'
-// let minSuppNum = 2
-// // let fileName = 'test-fp-growth.txt'
-// // let minSuppNum = 3
-// fileName = 'input/' + fileName
-// fpGrowthAlgorithm(fileName, minSuppNum)
+let fileName = 'Data_1_CH19_9.txt'
+let minSuppNum = 2
+// let fileName = 'test-fp-growth.txt'
+// let minSuppNum = 3
+fileName = 'input/' + fileName
+fpGrowthAlgorithm(fileName, minSuppNum)
 
-var questions = [{
-  type: 'input',
-  name: 'fileName',
-  message: "Nhap ten duong dan file: ",
-}, {
-  type: 'input',
-  name: 'minSuppNum',
-  message: "Nhap nguong toi thieu: ",
-}]
+// var questions = [{
+//   type: 'input',
+//   name: 'fileName',
+//   message: "Nhap ten duong dan file: ",
+// }, {
+//   type: 'input',
+//   name: 'minSuppNum',
+//   message: "Nhap nguong toi thieu: ",
+// }]
 
-inquirer.prompt(questions).then(answers => {
-  let {fileName, minSuppNum} = answers || {}
-  fileName = 'input/' + fileName
-  fpGrowthAlgorithm(fileName, minSuppNum)
-})
+// inquirer.prompt(questions).then(answers => {
+//   let {fileName, minSuppNum} = answers || {}
+//   fileName = 'input/' + fileName
+//   fpGrowthAlgorithm(fileName, minSuppNum)
+// })
