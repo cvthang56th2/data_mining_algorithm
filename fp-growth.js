@@ -133,6 +133,7 @@ let fpGrowthAlgorithm = async (fileName = '', minSupp = 1) => {
   }
   console.log('Co so mau dieu kien: ', coSoMauDieuKienObj)
   let mauPhoBienArr = []
+  let ttx = []
   for (let key in coSoMauDieuKienObj) {
     let value = coSoMauDieuKienObj[key]
     mauPhoBienArr.push(key)
@@ -161,16 +162,31 @@ let fpGrowthAlgorithm = async (fileName = '', minSupp = 1) => {
     await fs.unlinkSync(logResultFileName)
   }
   await fs.writeFileSync(logResultFileName, [
-    `Tap D_${i}_CH19_${j} voi nguong toi tieu: ${minSupp}`,
+    `Tap D_${i}_CH19_${j} voi nguong toi thieu: ${minSupp}`,
     `Bat dau luc: ${startTime}`,
     `Co tat ca ${mauPhoBienArr.length} tap thuong xuyen`,
     `Ket thuc luc: ${endTime}`,
   ].join('\n'))
-  let logTtxFileName = `output/fp-growth/TTX_${minSupp}_D_${i}_CH19_${j}.txt`
-  if (fs.existsSync(logTtxFileName)) {
-    await fs.unlinkSync(logTtxFileName)
+  // let logTtxFileName = `output/fp-growth/TTX_${minSupp}_D_${i}_CH19_${j}.txt`
+  // if (fs.existsSync(logTtxFileName)) {
+  //   await fs.unlinkSync(logTtxFileName)
+  // }
+  // await fs.writeFileSync(logTtxFileName, mauPhoBienArr.join(';\n') + ';')
+  let outputFileDataObj = {}
+  for (let itemStr of mauPhoBienArr) {
+    let itemLength = itemStr.split(';').length
+    if (!outputFileDataObj[itemLength]) {
+      outputFileDataObj[itemLength] = []
+    }
+    outputFileDataObj[itemLength].push(itemStr)
   }
-  await fs.writeFileSync(logTtxFileName, mauPhoBienArr.join(';\n') + ';')
+  for (let itemLength in outputFileDataObj) {
+    let logTtxFileName = `output/fp-growth/TTX_${minSupp}_D_${i}_CH19_${j}_${itemLength}.txt`
+    if (fs.existsSync(logTtxFileName)) {
+      await fs.unlinkSync(logTtxFileName)
+    }
+    await fs.writeFileSync(logTtxFileName, outputFileDataObj[itemLength].join(';\n') + ';')
+  }
 }
 
 const flattenObject = (obj) => {
