@@ -216,7 +216,7 @@ const flattenObject = (obj) => {
 }
 
 let fileName = 'Data_3_CH19_9.txt'
-let minSuppNum = 300
+let minSuppNum = 50
 // let fileName = 'test-fp-growth.txt'
 // let minSuppNum = 3
 fileName = 'input/' + fileName

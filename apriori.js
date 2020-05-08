@@ -168,25 +168,25 @@ let aprioriAlgorythm = async (filename, logFileName, minSupp = 1) => {
   await fs.writeFileSync(logFileName, logs.join('\n'))
 }
 
-var questions = [{
-  type: 'input',
-  name: 'fileName',
-  message: "Nhap ten duong dan file: ",
-}, {
-  type: 'input',
-  name: 'minSuppNum',
-  message: "Nhap nguong toi thieu: ",
-}]
+// var questions = [{
+//   type: 'input',
+//   name: 'fileName',
+//   message: "Nhap ten duong dan file: ",
+// }, {
+//   type: 'input',
+//   name: 'minSuppNum',
+//   message: "Nhap nguong toi thieu: ",
+// }]
 
-inquirer.prompt(questions).then(answers => {
-  let {fileName, minSuppNum} = answers || {}
-  let logFileName = 'output/' + fileName
-  fileName = 'input/' + fileName
-  aprioriAlgorythm(fileName, logFileName, minSuppNum)
-})
+// inquirer.prompt(questions).then(answers => {
+//   let {fileName, minSuppNum} = answers || {}
+//   let logFileName = 'output/' + fileName
+//   fileName = 'input/' + fileName
+//   aprioriAlgorythm(fileName, logFileName, minSuppNum)
+// })
 
-// let fileName = 'Data_2_CH19_9.txt'
-// let minSuppNum = 500
-// let logFileName = 'output/' + fileName
-// fileName = 'input/' + fileName
-// aprioriAlgorythm(fileName, logFileName, minSuppNum)
+let fileName = 'Data_3_CH19_9.txt'
+let minSuppNum = 50
+let logFileName = 'output/' + fileName
+fileName = 'input/' + fileName
+aprioriAlgorythm(fileName, logFileName, minSuppNum)
