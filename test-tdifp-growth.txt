@@ -1,0 +1,5 @@
+pen;paper;pencil;eraser;
+file;pencil;eraser;pen;note;
+gum;eraser;pencil;pen;whitener;
+file;gum;pen;
+pencil;gum;
